@@ -78,3 +78,12 @@ function updateTask() {
 
 // Event listener para actualizar
 updateBtn.addEventListener('click', updateTask);
+// Añadir esta función al final del script.js existente
+
+// Eliminar tarea
+function deleteTask(index) {
+    if (confirm('¿Estás seguro de eliminar esta tarea?')) {
+        tasks.splice(index, 1);
+        renderTasks();
+    }
+}
