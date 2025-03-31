@@ -48,3 +48,33 @@ taskInput.addEventListener('keypress', function(e) {
 
 // Inicializar la aplicación
 renderTasks();
+// Añadir estas funciones al final del script.js existente
+
+// Editar tarea
+function editTask(index) {
+    const task = tasks[index];
+    taskInput.value = task.name;
+    taskId.value = index;
+    addBtn.style.display = 'none';
+    updateBtn.style.display = 'inline-block';
+}
+
+// Actualizar tarea
+function updateTask() {
+    const index = parseInt(taskId.value);
+    const taskName = taskInput.value.trim();
+    
+    if (taskName) {
+        tasks[index].name = taskName;
+        taskInput.value = '';
+        taskId.value = '';
+        addBtn.style.display = 'inline-block';
+        updateBtn.style.display = 'none';
+        renderTasks();
+    } else {
+        alert('Por favor ingresa una tarea');
+    }
+}
+
+// Event listener para actualizar
+updateBtn.addEventListener('click', updateTask);
