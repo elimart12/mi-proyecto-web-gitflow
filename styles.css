@@ -74,3 +74,6 @@ li {
 .actions button.delete {
     background-color: #f44336;
 }
+.hidden {
+    display: none;
+}
